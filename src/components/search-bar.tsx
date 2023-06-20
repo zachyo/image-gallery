@@ -11,7 +11,6 @@ const SearchBar: React.FC = () => {
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     searchContext?.handleChange(event)
-    // ehandleChange(event.target.value);
   };
 
   return (

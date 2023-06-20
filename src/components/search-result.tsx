@@ -10,17 +10,19 @@ type Photo = {
   url: string;
   thumbnailUrl: string;
 };
+interface Props {
+  data: Array<Photo>;
+}
 
-const SearchResults: React.FC = (data: any) => {
+const SearchResults: React.FC<Props> = ({data}) => {
   const searchContext = useContext(SearchContext);
   let searchKey = searchContext?.searchKey;
-  let newData = data?.data;
+  let newData = data;
   console.log(newData);
 
   if (searchKey) {
     newData = searchFilter(searchKey, newData);
   }
-  //   console.log(searchKey, data, newData);
 
   return (
     <div className="album">

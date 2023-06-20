@@ -10,18 +10,21 @@ interface Photo {
   url: string;
   thumbnailUrl: string;
 }
+interface Props {
+  data : any;
+}
 
 interface GroupedPhotos {
   [albumId: number]: Photo[];
 }
 
-const GroupedPhotosComponent: React.FC = (data: any | null) => {
+const GroupedPhotosComponent: React.FC<Props> = ({data}) => {
   const setGroupedPhotos = usePhotoStore((state) => state.setGroupedPhotos);
 
   const groupedPhotos: GroupedPhotos = {};
 
   // Group photos by albumId
-  data?.data.forEach((photo: Photo) => {
+  data?.forEach((photo: Photo) => {
     if (!groupedPhotos[photo.albumId]) {
       groupedPhotos[photo.albumId] = [];
     }
@@ -31,8 +34,7 @@ const GroupedPhotosComponent: React.FC = (data: any | null) => {
   useEffect(() => {
     setGroupedPhotos(groupedPhotos);
   }, []);
-  // console.log(groupedPhotos);
-  // setGroupedPhotos(groupedPhotos);
+
   console.log(groupedPhotos);
   return (
     <div className="container flex flex-wrap">

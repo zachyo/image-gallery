@@ -11,23 +11,23 @@ type Photo =  {
   url: string;
   thumbnailUrl: string;
 }
+interface Props {
+  data: any;
+  title : string;
+}
 
-const AlbumPage: React.FC = ( data : any) => {
+const AlbumPage: React.FC<Props> = ({data, title}) => {
 
   let newData: Array<Photo>;
   const { id }: any = useParams();
-  if (data.title === 'Album') {
-  newData = data.data[parseInt(id)];
+  if (title === 'Album') {
+  newData = data[parseInt(id)];
   } else {
-    newData = data.data
+    newData = data
   }
-  console.log(newData);
   const searchContext = useContext(SearchContext);
   let searchKey = searchContext?.searchKey;
   if (searchKey) {
-    // newData = searchFilter(searchKey, data);
-    // console.log(searchKey, data, newData);
-
     return (
       <>
         <SearchResults data={newData} />
@@ -38,7 +38,7 @@ const AlbumPage: React.FC = ( data : any) => {
   return (
     <div className="album">
       <h1 className='mb-16'>
-        {data.title} {id ? id : ''}
+        {title} {id ? id : ''}
       </h1>
       <div className="container flex flex-wrap">
         {newData
