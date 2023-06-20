@@ -7,9 +7,11 @@ const FullPhoto: React.FC = () => {
   const { id } : any = useParams<{ id: string }>();
   const groupedPhotos = usePhotoStore((state)=> state.groupedPhotos)
   const setFavoritePhotos = useFavoriteStore((state)=> state.setFavoritePhotos)
-  const photo = groupedPhotos[Math.ceil(parseInt(id) / 50)][id-1];
+  let newId = Math.ceil(parseInt(id) / 50);
+  let arrayId = (id - 50 * (newId - 1)) - 1
+  const photo = groupedPhotos[newId][arrayId];
 
-  // console.log(groupedPhotos[1][5], photo, Math.ceil(parseInt(id)/50), favoritePhotos)
+  console.log(photo, Math.ceil(parseInt(id) / 50));
 
   return (
     <div className="full-photo">

@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+import SearchContext from "../context/searchContext";
+import SearchResults from "../components/search-result";
 
 type Photo =  {
   albumId: number;
@@ -20,6 +22,18 @@ const AlbumPage: React.FC = ( data : any) => {
     newData = data.data
   }
   console.log(newData);
+  const searchContext = useContext(SearchContext);
+  let searchKey = searchContext?.searchKey;
+  if (searchKey) {
+    // newData = searchFilter(searchKey, data);
+    // console.log(searchKey, data, newData);
+
+    return (
+      <>
+        <SearchResults data={newData} />
+      </>
+    );
+  }
 
   return (
     <div className="album">

@@ -14,7 +14,7 @@ const favoriteStore = (
   setFavoritePhotos: (obj) => {
     set((state) => ({
       ...state,
-      favoritePhotos: [...state.favoritePhotos,obj],
+      favoritePhotos: state.favoritePhotos.includes(obj) ? state.favoritePhotos : [...state.favoritePhotos,obj],
     }));
   },
 });
@@ -23,10 +23,6 @@ const useFavoriteStore = create(
   devtools(
     persist(favoriteStore, {
         name : 'favoriteStore'
-      // storage: createJSONStorage(() => sessionStorage),
-      /* storage: createJSONStorage(() => sessionStorage),
-      (optional) by default, 'localStorage' is used
-      */
     })
   )
 );

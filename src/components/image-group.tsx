@@ -1,4 +1,5 @@
 import React from "react";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import usePhotoStore from "../store/photoStore";
 
@@ -14,30 +15,32 @@ interface GroupedPhotos {
   [albumId: number]: Photo[];
 }
 
-const GroupedPhotosComponent: React.FC = (data : any | null) => {
-
+const GroupedPhotosComponent: React.FC = (data: any | null) => {
   const setGroupedPhotos = usePhotoStore((state) => state.setGroupedPhotos);
 
   const groupedPhotos: GroupedPhotos = {};
 
   // Group photos by albumId
-  data?.data.forEach((photo : Photo) => {
+  data?.data.forEach((photo: Photo) => {
     if (!groupedPhotos[photo.albumId]) {
       groupedPhotos[photo.albumId] = [];
     }
     groupedPhotos[photo.albumId].push(photo);
   });
-  setGroupedPhotos(groupedPhotos);
-  console.log(groupedPhotos);
+
+  useEffect(() => {
+    setGroupedPhotos(groupedPhotos);
+  }, []);
+  // console.log(groupedPhotos);
   return (
     <div className="container flex flex-wrap">
       {Object.keys(groupedPhotos)
-        .filter((items, index) => index < 10)
+        .filter((items, index) => index < 15)
         .map((albumId) => (
           <Link
             to={`/album/${albumId}`}
             key={albumId}
-            className="mr-5 mb-8 hover:outline hover:underline hover:scale-110 transition-all"
+            className="mr-5 mb-8 hover:underline hover:scale-105 transition-all"
           >
             <h2 className="text-left mb-2">Album {albumId}</h2>
             {groupedPhotos[parseInt(albumId)]
