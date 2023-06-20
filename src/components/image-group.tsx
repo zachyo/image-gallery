@@ -39,7 +39,7 @@ const GroupedPhotosComponent: React.FC<Props> = ({data}) => {
   return (
     <div className="container flex flex-wrap">
       {Object.keys(groupedPhotos)
-        .filter((items, index) => index < 15)
+        .filter((_, index) => index < 15)
         .map((albumId) => (
           <Link
             to={`/album/${albumId}`}
@@ -48,7 +48,7 @@ const GroupedPhotosComponent: React.FC<Props> = ({data}) => {
           >
             <h2 className="text-left mb-2">Album {albumId}</h2>
             {groupedPhotos[parseInt(albumId)]
-              .filter((items, index) => index < 1)
+              .filter((_, index) => index < 1)
               .map((photo) => (
                 <div key={photo.id}>
                   <img

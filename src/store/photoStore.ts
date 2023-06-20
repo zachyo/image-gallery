@@ -20,15 +20,14 @@ const photoStore = (
   },
 });
 
-const usePhotoStore = create(photoStore)
-//   devtools(
-//     persist(photoStore, {
-//       // storage: createJSONStorage(() => sessionStorage),
-//       /* storage: createJSONStorage(() => sessionStorage),
-//       (optional) by default, 'localStorage' is used
-//       */
-//     })
-//   )
-// );
+const usePhotoStore = create(
+  devtools(
+    persist(photoStore, {
+      name: "photoStore",
+      getStorage: () => sessionStorage,
+    })
+  )
+);
+
 
 export default usePhotoStore;
