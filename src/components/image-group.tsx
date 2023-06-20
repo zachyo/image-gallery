@@ -27,7 +27,7 @@ const GroupedPhotosComponent: React.FC = (data : any | null) => {
     }
     groupedPhotos[photo.albumId].push(photo);
   });
-  setGroupedPhotos(groupedPhotos);
+  // setGroupedPhotos(groupedPhotos);
   console.log(groupedPhotos);
   return (
     <div className="container flex flex-wrap">
