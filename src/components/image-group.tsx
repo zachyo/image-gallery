@@ -35,7 +35,7 @@ const GroupedPhotosComponent: React.FC<Props> = ({data}) => {
     setGroupedPhotos(groupedPhotos);
   }, []);
 
-  console.log(groupedPhotos);
+  // console.log(groupedPhotos);
   return (
     <div className="container flex flex-wrap">
       {Object.keys(groupedPhotos)
