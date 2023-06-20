@@ -6,6 +6,7 @@ import SearchContext, { SearchProvider } from "../context/searchContext";
 import { searchFilter } from "../utilities/searchFilter";
 import AlbumPage from "./album-page";
 import SearchResults from "../components/search-result";
+import { Link } from "react-router-dom";
 
 const Homepage: React.FC = () => {
   const { loading, error, data } = useFetch(
@@ -14,7 +15,8 @@ const Homepage: React.FC = () => {
   console.log(data);
   const searchContext = useContext(SearchContext);
   let searchKey = searchContext?.searchKey;
-  let newData = data?.data;
+  let newData = data?.filter((items, index : number) => index < 15);
+
 
   if (searchKey) {
     // newData = searchFilter(searchKey, data);
@@ -37,6 +39,12 @@ const Homepage: React.FC = () => {
           <GroupedPhotosComponent data={data} />
         </>
       )}
+      <h1 className="text-2xl">
+        View your favorites{" "}
+        <Link to={"/favorites"} className="text-2xl hover:underline">
+          here
+        </Link>
+      </h1>
     </div>
   );
 };

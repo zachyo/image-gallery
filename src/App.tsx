@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Link, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Homepage from "./pages/homepage";
 import AlbumPage from "./pages/album-page";
@@ -16,7 +16,9 @@ function App() {
   return (
     <div>
       <SearchProvider>
-        <h1 className="text-3xl text-white font-bold mt-12 mb-24">Image Gallery</h1>
+        <h1 className="text-3xl text-white font-bold mt-12 mb-24">
+          <Link to={"/"}>Image Gallery</Link>
+        </h1>
         <SearchBar />
         <Routes>
           <Route path="/" element={<Homepage />} />
@@ -30,6 +32,7 @@ function App() {
             element={<AlbumPage title="Favorites" data={favoritePhotos} />}
           />
         </Routes>
+        
       </SearchProvider>
     </div>
   );
