@@ -40,7 +40,7 @@ const AlbumPage: React.FC<Props> = ({data, title}) => {
       <h1 className="mb-16">
         {title} {id ? id : ""}
       </h1>
-      <div className="container flex flex-wrap">
+      <div className="container flex flex-wrap justify-center">
         {newData
           // .filter((items, index) => index < 20)
           .map((photo) => (

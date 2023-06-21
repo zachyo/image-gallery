@@ -27,7 +27,7 @@ const SearchResults: React.FC<Props> = ({data}) => {
   return (
     <div className="album">
       <h1 className="mb-16">Searched Results for '{searchKey}'</h1>
-      <div className="container flex flex-wrap">
+      <div className="container flex flex-wrap justify-center">
         {newData.length === 0 ? (
           <p className="mx-auto my-0">No match found!</p>
         ) : (
