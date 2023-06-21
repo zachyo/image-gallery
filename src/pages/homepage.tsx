@@ -13,7 +13,7 @@ const Homepage: React.FC = () => {
   let searchKey = searchContext?.searchKey;
   let newData = data?.filter((_: any, index: number) => index < 15);
 
-  if (searchKey) {
+  if (searchKey && newData) {
     return (
       <>
         <SearchResults data={newData} />
