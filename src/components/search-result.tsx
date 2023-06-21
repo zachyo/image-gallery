@@ -26,18 +26,20 @@ const SearchResults: React.FC<Props> = ({data}) => {
 
   return (
     <div className="album">
-      <h1 className="mb-16">
-        Searched Results for '{searchKey}'
-      </h1>
+      <h1 className="mb-16">Searched Results for '{searchKey}'</h1>
       <div className="container flex flex-wrap">
-        {newData.length === 0 ? <p className="mx-auto my-0">No match found!</p> : ''}
+        {newData.length === 0 ? (
+          <p className="mx-auto my-0">No match found!</p>
+        ) : (
+          ""
+        )}
         {newData
           // .filter((items, index) => index < 20)
-          .map((photo : Photo) => (
+          .map((photo: Photo) => (
             <Link
               to={`/photo/${photo.id}`}
               key={photo.id}
-              className="mr-5 mb-8 hover:underline hover:scale-110 transition-all"
+              className="mr-5 mb-8 hover:underline hover:scale-110 transition-all w-1/3 md:w-auto"
             >
               <img
                 src={photo.thumbnailUrl}

@@ -44,7 +44,7 @@ const GroupedPhotosComponent: React.FC<Props> = ({data}) => {
           <Link
             to={`/album/${albumId}`}
             key={albumId}
-            className="mb-8 mx-2 hover:underline hover:scale-105 transition-all w-1/4 md:w-auto"
+            className="mb-8 mx-2 hover:underline hover:scale-105 transition-all w-1/3 md:w-auto"
           >
             <h2 className="text-left mb-2">Album {albumId}</h2>
             {groupedPhotos[parseInt(albumId)]

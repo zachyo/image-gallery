@@ -37,8 +37,8 @@ const AlbumPage: React.FC<Props> = ({data, title}) => {
 
   return (
     <div className="album">
-      <h1 className='mb-16'>
-        {title} {id ? id : ''}
+      <h1 className="mb-16">
+        {title} {id ? id : ""}
       </h1>
       <div className="container flex flex-wrap">
         {newData
@@ -47,7 +47,7 @@ const AlbumPage: React.FC<Props> = ({data, title}) => {
             <Link
               to={`/photo/${photo.id}`}
               key={photo.id}
-              className="mr-5 mb-8 hover:underline hover:scale-110 transition-all"
+              className="mr-5 mb-8 hover:underline hover:scale-110 transition-all w-1/3 md:w-auto"
             >
               <img
                 src={photo.thumbnailUrl}
