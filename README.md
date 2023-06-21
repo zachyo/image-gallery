@@ -2,6 +2,8 @@
 
 This application was created using vite
 
+Click here[https://fascinating-hummingbird-5decc1.netlify.app/] to view the hosted web application
+
 To run this application locally,
 
 Step 1 : Download the Zip File
