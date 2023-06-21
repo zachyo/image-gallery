@@ -11,7 +11,7 @@ const Homepage: React.FC = () => {
   );
   const searchContext = useContext(SearchContext);
   let searchKey = searchContext?.searchKey;
-  let newData = data?.filter((_: any, index: number) => index < 15);
+  let newData = data?.filter((_: any, index: number) => index < 750);
 
   if (searchKey && newData) {
     return (
