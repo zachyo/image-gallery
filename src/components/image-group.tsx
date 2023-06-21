@@ -37,14 +37,14 @@ const GroupedPhotosComponent: React.FC<Props> = ({data}) => {
 
   // console.log(groupedPhotos);
   return (
-    <div className="container flex flex-wrap">
+    <div className="container flex flex-wrap justify-center ">
       {Object.keys(groupedPhotos)
         .filter((_, index) => index < 15)
         .map((albumId) => (
           <Link
             to={`/album/${albumId}`}
             key={albumId}
-            className="mr-5 mb-8 hover:underline hover:scale-105 transition-all"
+            className="mb-8 mx-2 hover:underline hover:scale-105 transition-all w-1/4 md:w-auto"
           >
             <h2 className="text-left mb-2">Album {albumId}</h2>
             {groupedPhotos[parseInt(albumId)]
